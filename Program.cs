@@ -9,11 +9,11 @@ namespace Lab3
     {
         static void Main(string[] args)
         {
-            List<int> intList = GenerateRandomIntList(1000000, 5000);
+            //List<int> intList = GenerateRandomIntList(10000000, 5000);
 
             //List<int> intList = GenerateReverseIntList(1000, 5000);
 
-            //List<int> intList = GenerateRandomIntList(1000, 5000);
+            List<int> intList = GenerateNearlySortedIntList(1000, 5000);
 
             double totalTime = 0.0;
             double averageTime = 0.0;
@@ -25,7 +25,7 @@ namespace Lab3
             //Console.WriteLine("[{0}]", string.Join(", ", doubleList.ToArray()));
 
             //Quadratic Time:
-            
+
             BubbleSort<int> bubbleSort = new BubbleSort<int>();
             Console.WriteLine("BUBBLE SORT");
 
