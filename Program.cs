@@ -9,7 +9,11 @@ namespace Lab3
     {
         static void Main(string[] args)
         {
-            List<int> intList = GenerateRandomIntList(1000, 5000);
+            List<int> intList = GenerateRandomIntList(1000000, 5000);
+
+            //List<int> intList = GenerateReverseIntList(1000, 5000);
+
+            //List<int> intList = GenerateRandomIntList(1000, 5000);
 
             double totalTime = 0.0;
             double averageTime = 0.0;
@@ -244,6 +248,31 @@ namespace Lab3
             return list;
         }
 
+        public static List<int> GenerateReverseIntList(int length, int maxValue)
+        {
+            List<int> list = GenerateRandomIntList(length, maxValue);
+            list.Sort();
+            list.Reverse();
+            return list;
+        }
+
+        public static List<int> GenerateNearlySortedIntList(int length, int maxValue)
+        {
+            Random random = new Random();
+            List<int> list = GenerateRandomIntList(length, maxValue);
+            list.Sort();
+            for (int i = 0; i < (length * 0.025); i++)
+            {
+                var rand1 = random.Next(0, length);
+                var rand2 = random.Next(0, length);
+
+                var temp = rand1;
+                list[rand1] = list[rand2];
+                list[rand2] = list[temp];
+            }
+            return list;
+        }
+
         public static List<double> GenerateRandomDoubleList(int length, double maxValue)
         {
             List<double> list = new List<double>();
@@ -257,5 +286,31 @@ namespace Lab3
 
             return list;
         }
+
+        public static List<double> GenerateReverseDoubleList(int length, double maxValue)
+        {
+            List<double> list = GenerateRandomDoubleList(length, maxValue);
+            list.Sort();
+            list.Reverse();
+            return list;
+        }
+
+        public static List<double> GenerateNearlySortedDoubleList(int length, double maxValue)
+        {
+            Random random = new Random();
+            List<double> list = GenerateRandomDoubleList(length, maxValue);
+            list.Sort();
+            for (double i = 0; i < (length * 0.025); i++)
+            {
+                var rand1 = random.Next(0, length);
+                var rand2 = random.Next(0, length);
+
+                var temp = rand1;
+                list[rand1] = list[rand2];
+                list[rand2] = list[temp];
+            }
+            return list;
+        }
+
     }
 }
